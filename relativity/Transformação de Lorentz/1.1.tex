@@ -1,0 +1,109 @@
+\section{Transformação de Lorentz}
+
+
+\subsection{Linearidade}
+
+Partindo da equação de ondas $\psi_{xx} = \psi_{tt}$, onde $\psi = \psi (x,y)$ é uma das auto funções da equação de onda. Vamos supor existir uma transformação de coordenadas $x' = x'(x,t)$ e  $t' = t'(x,t)$ de forma que a \textbf{Equação de Onda} permaneça invariante, ou seja $\psi(x,t) \to \varphi (x',t')$. Sendo a transformação de coordenadas uma transformação linear do tipo:
+%
+%
+\begin{eqnarray}
+\nonumber x' &=& ax + bt\\
+\nonumber t' &=& cx + d t 
+\end{eqnarray}
+%
+%
+Em forma matricial temos que:
+%
+%
+\[ \begin{pmatrix}  x' \\ y' \end{pmatrix} = \begin{pmatrix} a & b  \\  c & d \end{pmatrix} \begin{pmatrix}  x \\ y \end{pmatrix} \Leftrightarrow X' = A X\]
+%
+%
+Vamos fazer a suposição de que $\det A = ab - cd \neq 0$, o que permite que a matriz de transformação (A) possua inversa. Utilizando a regra da cadeia, iremos encontrar uma relação entre as derivadas parciais $\partial/\partial x$ , $\partial/\partial t$ , $\partial/\partial x'$ e $\partial/\partial t'$ e também para suas segundas derivadas:
+%
+%
+\begin{eqnarray}
+\nonumber \deli{^2}{{x}^2} &=& \left(a\deli{}{x'} + c\deli{}{t'} \right)\left(a\deli{}{x'} + c\deli{}{t'} \right)\\
+\nonumber                 &=& a^2\deli{^2}{{x'}^2} + 2ac\deli{^2}{x'\partial t'} + c^2\deli{^2}{{t'}^2}
+\end{eqnarray}
+%
+%
+Da mesma forma procedemos para encontrar uma relação para $\partial^2/\partial t^2$:
+%
+%
+\begin{eqnarray}
+\nonumber \deli{^2}{{t}^2} &=& \left(b\deli{}{t'} + d\deli{}{x'} \right)\left(b\deli{}{t'} + d\deli{}{x'} \right)\\
+\nonumber                 &=& b^2\deli{^2}{{x'}^2} + 2bd\deli{^2}{x'\partial t'} + d^2\deli{^2}{{t'}^2}
+\end{eqnarray}
+%
+%
+Podemos reescrever a equação de onda da seguinte maneira:
+%
+%
+\[ \left(\deli{^2}{t^2} - \deli{^2}{x^2}\right)\psi(x,y) = 0 \Leftrightarrow \square \psi(x,y) = 0 \]
+%
+%
+\newpage
+\noindent Onde $\square = \partial^2/\partial t^2 - \partial^2/\partial x^2$ é o \textbf{Operador de D'Alembert}, o que estamos propondo é utilizar a transformação de coordenadas de forma que a equação de auto-valores seja invariante, ou seja queremos transformar $\square \to \square'$ de forma que produzam os mesmos tipos de soluções. Utilizando as relações encontradas:
+%
+%
+\[ \square =  (d^2 - c^2)\deli{^2}{{t'}^2} - (a^2 - b^2)\deli{^2}{{x'}^2} + 2(bd - ac)\deli{^2}{x'\partial t'}\]
+%
+%
+O `novo' \textbf{Operador de D'Alembert} deve ser $\square' = \partial^2/\partial {t'}^2 - \partial^2/\partial {x'}^2$ de forma que se tenha $\square \psi(x,t) = \square' \varphi(x',t') = 0$, logo é necessário que:
+%
+%
+%
+\begin{eqnarray}
+\nonumber bd - ac   &=& 0  \Rightarrow b/a = c/d \equiv \beta\\
+\nonumber d^2 - c^2 &=& 1  \Rightarrow d  = \pm 1/\sqrt{1 - \beta^2}\\
+\nonumber a^2 - b^2 &=& 1  \Rightarrow a  = \pm 1/\sqrt{1 - \beta^2}
+\end{eqnarray}
+%
+%
+%
+Das equações acima, temos que $d = a = \pm (1 - \beta^2)^{-1/2}$, dessa maneira temos que a transformação de coordenadas $(x',t') \to (x,t)$ tem a forma:
+%
+%
+%
+\begin{eqnarray}
+\nonumber x' &=& (x + \beta t)/\sqrt{1 - \beta^2}\\
+\nonumber t' &=& (\beta x + t)/\sqrt{1 - \beta^2} 
+\end{eqnarray}
+%
+%
+%
+Em forma matricial temos que:
+%
+%
+%
+\[ \begin{pmatrix}  x' \\ y' \end{pmatrix} = \begin{pmatrix} 1/\sqrt{1 - \beta^2} & \beta/\sqrt{1 - \beta^2}  \\   \beta/\sqrt{1 - \beta^2} &  1/\sqrt{1 - \beta^2} \end{pmatrix} \begin{pmatrix}  x \\ y \end{pmatrix} \]
+%
+%
+%
+A transformação inversa é dada por:
+%
+%
+%
+\[ \begin{pmatrix}  x \\ y \end{pmatrix} = \begin{pmatrix} 1/\sqrt{1 - \beta^2} & - \beta/\sqrt{1 - \beta^2}  \\   - \beta/\sqrt{1 - \beta^2} &  1/\sqrt{1 - \beta^2} \end{pmatrix} \begin{pmatrix}  x' \\ y' \end{pmatrix} \]
+%
+%
+%
+É comum encontrarmos em textos de física o fator $\gamma = 1/\sqrt{1 - \beta^2}$, conhecido pelo nome de ``fator de Lorentz". Dessa maneira tem-se que:
+%
+%
+%
+\[\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} \gamma & - \gamma\beta\\ - \gamma\beta &  \gamma \end{pmatrix} \begin{pmatrix}  x' \\ y' \end{pmatrix} \]
+%
+%
+%
+Em forma de sistemas lineares de transformação, tem-se que:
+%
+%
+%
+\begin{eqnarray}
+\nonumber x &=& \gamma(x' - \beta t')\\
+\nonumber t &=& \gamma(\beta x' - t') 
+\end{eqnarray}
+%
+%
+%
