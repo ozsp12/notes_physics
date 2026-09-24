@@ -1,0 +1,583 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage{ragged2e}
+\usepackage[
+    unicode=true,
+    pdfencoding=auto,
+    psdextra,
+    plainpages=false,
+    pdfpagelabels,
+    pagebackref=false,
+    hyperindex,
+    breaklinks=true,
+    colorlinks=true,
+    citecolor=black,
+    linkcolor=black,
+    urlcolor=blue,
+    filecolor=black,
+    bookmarksopen=true
+]{hyperref}
+\usepackage[
+    a4paper,
+    left=18mm,
+    right=18mm,
+    top=16mm,
+    bottom=18mm,
+    headheight=15.8pt,
+    headsep=4mm,
+    footskip=8mm,
+    includeheadfoot
+]{geometry}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\tr}{\operatorname{Tr}}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\numberwithin{equation}{section}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape\nouppercase{\leftmark}}
+\fancyfoot[L]{\scriptsize Osvaldo L. Santos-Pereira --- \href{mailto:olsp@if.ufrj.br}{olsp@if.ufrj.br}}
+\fancyfoot[C]{\scriptsize \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\urlstyle{same}
+
+\newcommand{\coverauthor}[4]{%
+{\large\bfseries #1\par}
+\vspace{0.02cm}
+{\normalsize\href{mailto:#2}{#2}\par}
+\vspace{0.02cm}
+{\normalsize\color{blue}\url{#3}\par}
+\vspace{0.02cm}
+{\normalsize\itshape #4\par}
+\vspace{0.8cm}
+}
+
+\long\def\coveraboutme#1{%
+\vspace{0.3cm}
+\begingroup
+{\large\bfseries\color{black} About Me\par}
+\vspace{0.18cm}
+\small
+\color{black!85}
+\justifying
+\setlength{\parindent}{18pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+#1
+\par
+\endgroup
+\vspace{0.5cm}
+}
+
+\newcommand{\sociallink}[2]{%
+\noindent{\footnotesize\color{black!80} #1: \url{#2}\par}
+}
+
+\newcommand{\chaptercover}[4]{%
+\begin{titlepage}
+\thispagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\vspace*{0.2cm}
+{\fontsize{34}{40}\selectfont\bfseries #1\par}
+\vspace{1.0cm}
+{\fontsize{26}{30}\selectfont\bfseries #2\par}
+\vspace{1.5cm}
+\rule{\textwidth}{2.0pt}
+\vspace{1.0cm}
+#3
+\vspace{0.3cm}
+#4
+\vfill
+\end{titlepage}
+}
+
+\begin{document}
+
+\chaptercover
+{The Dirac Equation}
+{Relativistic Quantum Mechanics, Spinors, and One-Dimensional Scattering}
+{
+\coverauthor
+{Osvaldo L. Santos-Pereira}
+{olsp@if.ufrj.br}
+{https://ozsp12.github.io/}
+{Physics Institute of the Federal University of Rio de Janeiro (UFRJ)}
+}
+{
+\coveraboutme{
+\noindent
+I hold a PhD in Physics from the Federal University of Rio de Janeiro (UFRJ), a Master's degree in Physics from the State University of Campinas (Unicamp), a Master's degree in Data Science and Analytics from the University of S\~ao Paulo (MBA USP-ESALQ), a postgraduate degree in Quantum Computing from SENAI-CIMATEC, and a Bachelor's degree in Physics from Unicamp.
+
+\noindent
+I am currently a Fellow Researcher at the Physics Institute of the Federal University of Rio de Janeiro (UFRJ), where I research Warp Drive Theory, Classical General Relativity, Cosmology, Econophysics, and Computational Physics. Other research interests include Wormhole Theory, Black Hole Theory, Quantum Gravity, Quantum Computing and Information, Mathematics, and Artificial Intelligence.
+
+\noindent
+I work in the private sector as a data science consultant and artificial intelligence specialist. I conduct research projects across several industries, including education, health, medical applications, e-commerce, and large retail.
+
+\vspace{0.3cm}
+\sociallink{Curr\'iculo Lattes}{http://lattes.cnpq.br/6730251976463283}
+\sociallink{ResearchGate}{https://www.researchgate.net/profile/Osvaldo-Santos-Pereira}
+\sociallink{ORCID}{https://orcid.org/0000-0003-2231-517X}
+\sociallink{Google Scholar}{https://scholar.google.com/citations?user=HIZp0X8AAAAJ&hl=en}
+\sociallink{LinkedIn}{https://www.linkedin.com/in/ozsp12}
+\sociallink{Substack}{https://substack.com/@olsp1982}
+\sociallink{GitHub}{https://github.com/ozsp12}
+\sociallink{YouTube}{https://www.youtube.com/@ozlsp12}
+\sociallink{TikTok}{https://www.tiktok.com/@ozsp12}
+\sociallink{Patreon}{https://www.patreon.com/ozsp12}
+\sociallink{X (Twitter)}{https://x.com/ozsp12}
+}
+}
+
+\tableofcontents
+\newpage
+
+\section{Historical Motivation}
+
+The development of relativistic quantum mechanics followed directly from the tension between the successful nonrelativistic quantum theory of the 1920s and the kinematics imposed by special relativity. The Schr\"odinger equation gives a first-order evolution law in time,
+\be
+ i\hbar \pder{\psi}{t}
+ = \left[-\frac{\hbar^2}{2m}\nabla^2+V(\mathbf{x},t)\right]\psi,
+\label{eq:schrodinger}
+\ee
+but its free-particle dispersion relation, $E=\mathbf{p}^2/(2m)$, is not Lorentz invariant. A relativistic wave equation should instead reproduce
+\be
+ E^2 = \mathbf{p}^2c^2+m^2c^4.
+\label{eq:dispersion}
+\ee
+The early attempts to reconcile Eqs.~\eqref{eq:schrodinger} and \eqref{eq:dispersion} led to the Klein--Gordon equation and, shortly afterward, to Dirac's linear relativistic equation \cite{Dirac1928,DiracBook}.
+
+The conceptual transition is best stated in operator language. In the position representation,
+\be
+ \hat{\mathbf{p}}=-i\hbar\nabla,
+ \qquad
+ \hat{E}=i\hbar\frac{\partial}{\partial t}.
+\label{eq:quantization}
+\ee
+For nonrelativistic dynamics these operators are inserted into the classical Hamiltonian $H=\mathbf{p}^2/(2m)+V$. Relativity changes the required energy--momentum relation and therefore changes the operator equation itself. The central problem is not merely to add a relativistic correction to the Schr\"odinger Hamiltonian, but to construct a wave equation compatible with Lorentz symmetry and a consistent probability interpretation.
+
+The Pauli theory provides an important intermediate step. A nonrelativistic spin-$1/2$ particle interacting minimally with an electromagnetic field is described by
+\be
+ i\hbar\pder{\chi}{t}
+ = \left[
+ \frac{1}{2m}\left(\boldsymbol{\sigma}\cdot(\mathbf{p}-q\mathbf{A})\right)^2
+ +q\phi
+ \right]\chi,
+\label{eq:pauli}
+\ee
+where $\chi$ is a two-component spinor and $\boldsymbol{\sigma}=(\sigma_1,\sigma_2,\sigma_3)$ denotes the Pauli matrices. Spin is therefore already encoded algebraically before the fully relativistic theory is constructed. Dirac's equation extends this structure in such a way that spin and the relativistic dispersion relation arise together \cite{Greiner,Gottfried}.
+
+\section{The Klein--Gordon Equation}
+
+We adopt the metric signature $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$ and coordinates $x^\mu=(ct,\mathbf{x})$. The four-momentum is
+\be
+ p^\mu=\left(\frac{E}{c},\mathbf{p}\right),
+ \qquad
+ p_\mu=\left(\frac{E}{c},-\mathbf{p}\right),
+\ee
+and satisfies the Lorentz-invariant mass-shell condition
+\be
+ p^\mu p_\mu = m^2c^2.
+\label{eq:massshell}
+\ee
+With the quantum operator $\hat p_\mu=i\hbar\partial_\mu$, Eq.~\eqref{eq:massshell} becomes
+\be
+ \left(\Box+\frac{m^2c^2}{\hbar^2}\right)\phi=0,
+ \qquad
+ \Box\equiv\partial_\mu\partial^\mu
+ =\frac{1}{c^2}\frac{\partial^2}{\partial t^2}-\nabla^2.
+\label{eq:kg}
+\ee
+This is the Klein--Gordon equation for a free scalar field.
+
+For a plane wave,
+\be
+ \phi(x)=A\exp\left(-\frac{i}{\hbar}p_\mu x^\mu\right)
+ =A\exp\left[\frac{i}{\hbar}(\mathbf{p}\cdot\mathbf{x}-Et)\right],
+\label{eq:kg_plane}
+\ee
+Eq.~\eqref{eq:kg} yields two energy branches,
+\be
+ E_{\pm}=\pm\sqrt{\mathbf{p}^2c^2+m^2c^4}.
+\label{eq:energybranches}
+\ee
+The presence of negative-frequency solutions is not a mathematical defect. In relativistic quantum field theory the two branches are incorporated through particle and antiparticle degrees of freedom. What makes the Klein--Gordon equation unsuitable as a single-particle Schr\"odinger equation is instead that its conserved density is not positive definite.
+
+To see this, combine Eq.~\eqref{eq:kg} with its complex conjugate. The resulting conserved four-current may be written as
+\be
+ j^\mu
+ =\frac{i\hbar}{2m}
+ \left(\phi^*\partial^\mu\phi-\phi\partial^\mu\phi^*\right),
+ \qquad
+ \partial_\mu j^\mu=0.
+\label{eq:kg_current}
+\ee
+Its time component can take either sign. Dirac sought a relativistic equation first order in time whose conserved density could be identified directly with a nonnegative norm.
+
+\section{Dirac Linearization}
+
+Dirac's construction starts by requiring a Hamiltonian linear in the momentum operator,
+\be
+ i\hbar\pder{\psi}{t}=H_D\psi,
+ \qquad
+ H_D=c\boldsymbol{\alpha}\cdot\mathbf{p}+\beta mc^2,
+\label{eq:dirac_hamiltonian}
+\ee
+where $\alpha_i$ and $\beta$ are constant matrices acting on the components of $\psi$. Squaring the Hamiltonian gives
+\begin{align}
+ H_D^2
+ &=c^2\alpha_i\alpha_j p_i p_j
+ +mc^3(\alpha_i\beta+\beta\alpha_i)p_i
+ +\beta^2m^2c^4.\label{eq:dirac_squared}
+\end{align}
+Because $p_ip_j$ is symmetric under $i\leftrightarrow j$, only the anticommutator of the $\alpha_i$ contributes. Requiring
+\be
+ H_D^2=\mathbf{p}^2c^2+m^2c^4
+\ee
+for arbitrary momentum implies
+\begin{align}
+ \{\alpha_i,\alpha_j\}&=2\delta_{ij}\I,\label{eq:alpha_algebra}\\
+ \{\alpha_i,\beta\}&=0,\label{eq:alpha_beta}\\
+ \beta^2&=\I.\label{eq:beta_square}
+\end{align}
+These relations are the algebraic core of the Dirac equation.
+
+In the standard Dirac representation,
+\be
+ \alpha_i=
+ \begin{pmatrix}
+ 0&\sigma_i\\
+ \sigma_i&0
+ \end{pmatrix},
+ \qquad
+ \beta=
+ \begin{pmatrix}
+ I_2&0\\
+ 0&-I_2
+ \end{pmatrix},
+\label{eq:alpha_beta_standard}
+\ee
+where
+\be
+ \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ \sigma_2=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\qquad
+ \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\label{eq:pauli_matrices}
+\ee
+The wave function must therefore contain four complex components. The minimal complex representation of the Clifford algebra associated with four-dimensional Minkowski spacetime is four-dimensional; two-component Pauli matrices alone cannot realize the full set of anticommutation relations in Eqs.~\eqref{eq:alpha_algebra}--\eqref{eq:beta_square}.
+
+\section{Covariant Form and the Clifford Algebra}
+
+Define the gamma matrices by
+\be
+ \gamma^0=\beta,
+ \qquad
+ \gamma^i=\beta\alpha_i.
+\label{eq:gamma_definition}
+\ee
+The relations of the previous section become
+\be
+ \{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}\I_4.
+\label{eq:clifford}
+\ee
+Equation~\eqref{eq:clifford} defines the complex Clifford algebra used in the Dirac theory. In the standard representation,
+\be
+ \gamma^0=
+ \begin{pmatrix}
+ I_2&0\\
+ 0&-I_2
+ \end{pmatrix},
+ \qquad
+ \gamma^i=
+ \begin{pmatrix}
+ 0&\sigma_i\\
+ -\sigma_i&0
+ \end{pmatrix}.
+\label{eq:gamma_standard}
+\ee
+Multiplying Eq.~\eqref{eq:dirac_hamiltonian} by $\beta/c$ and using $p_\mu=i\hbar\partial_\mu$ gives the manifestly covariant equation
+\be
+ \left(i\hbar\gamma^\mu\partial_\mu-mc\right)\psi=0.
+\label{eq:dirac_covariant}
+\ee
+The adjoint spinor is defined by
+\be
+ \bar\psi\equiv\psi^\dagger\gamma^0.
+\ee
+Together with the adjoint Dirac equation, Eq.~\eqref{eq:dirac_covariant} implies the conserved current
+\be
+ j^\mu=c\bar\psi\gamma^\mu\psi,
+ \qquad
+ \partial_\mu j^\mu=0.
+\label{eq:dirac_current}
+\ee
+Its time component is
+\be
+ j^0=c\psi^\dagger\psi\geq 0,
+\label{eq:positive_density}
+\ee
+which supplies the positive-definite density absent in the single-particle Klein--Gordon interpretation.
+
+The matrices $\alpha_i$ and $\beta$ are Hermitian. Their squares equal the identity, so their eigenvalues are $\pm1$. Anticommutation further implies vanishing trace. For example,
+\be
+ \tr(\alpha_i)=\tr(-\beta\alpha_i\beta)
+ =-\tr(\beta^2\alpha_i)
+ =-\tr(\alpha_i),
+\ee
+hence $\tr(\alpha_i)=0$. Equivalent sets of gamma matrices are related by similarity transformations and represent the same Clifford algebra. Physical observables are therefore representation independent.
+
+\section{Free-Particle Solutions}
+
+For a stationary free particle, write
+\be
+ \psi(\mathbf{x},t)=u(\mathbf{p})
+ \exp\left[\frac{i}{\hbar}(\mathbf{p}\cdot\mathbf{x}-Et)\right].
+\label{eq:dirac_plane_wave}
+\ee
+The spinor satisfies
+\be
+ \left(c\boldsymbol{\alpha}\cdot\mathbf{p}+\beta mc^2\right)u=Eu.
+\label{eq:dirac_eigenvalue}
+\ee
+Decompose it into two Pauli spinors,
+\be
+ u=\begin{pmatrix}\phi\\\chi\end{pmatrix}.
+\ee
+Using Eq.~\eqref{eq:alpha_beta_standard}, Eq.~\eqref{eq:dirac_eigenvalue} becomes
+\begin{align}
+ (E-mc^2)\phi&=c\boldsymbol{\sigma}\cdot\mathbf{p}\,\chi,
+ \label{eq:upper_eq}\\
+ (E+mc^2)\chi&=c\boldsymbol{\sigma}\cdot\mathbf{p}\,\phi.
+ \label{eq:lower_eq}
+\end{align}
+For the positive-energy branch $E=+\sqrt{\mathbf{p}^2c^2+m^2c^4}$,
+\be
+ \chi=\frac{c\boldsymbol{\sigma}\cdot\mathbf{p}}{E+mc^2}\phi.
+\ee
+Choosing a normalized two-spinor $\xi_s$ with $s=1,2$, one obtains
+\be
+ u_s(\mathbf{p})
+ =N_+
+ \begin{pmatrix}
+ \xi_s\\[2mm]
+ \displaystyle\frac{c\boldsymbol{\sigma}\cdot\mathbf{p}}{E+mc^2}\xi_s
+ \end{pmatrix},
+\label{eq:u_spinor}
+\ee
+where $N_+$ fixes the chosen normalization convention.
+
+For negative-frequency solutions it is customary to write the positive quantity $E=\sqrt{\mathbf{p}^2c^2+m^2c^4}$ and use antiparticle spinors $v_s$. A convenient form is
+\be
+ v_s(\mathbf{p})
+ =N_-
+ \begin{pmatrix}
+ \displaystyle\frac{c\boldsymbol{\sigma}\cdot\mathbf{p}}{E+mc^2}\eta_s\\[2mm]
+ \eta_s
+ \end{pmatrix}.
+\label{eq:v_spinor}
+\ee
+The two independent choices of $\xi_s$ or $\eta_s$ account for the two spin states. Together, the positive- and negative-frequency sectors provide four linearly independent free solutions.
+
+For momentum parallel to the $z$ axis, $\mathbf{p}=p\hat{\mathbf{z}}$, Eq.~\eqref{eq:u_spinor} reduces to
+\be
+ u_\uparrow(p)=N_+
+ \begin{pmatrix}
+ 1\\0\\\dfrac{pc}{E+mc^2}\\0
+ \end{pmatrix},
+ \qquad
+ u_\downarrow(p)=N_+
+ \begin{pmatrix}
+ 0\\1\\0\\-\dfrac{pc}{E+mc^2}
+ \end{pmatrix}.
+\label{eq:z_spinors}
+\ee
+This form is especially useful for one-dimensional scattering.
+
+\section{Square-Barrier Scattering}
+
+Consider a time-independent electrostatic potential
+\be
+ V(z)=
+ \begin{cases}
+ 0, & z<0,\\
+ V_0, & 0\leq z\leq L,\\
+ 0, & z>L,
+ \end{cases}
+\label{eq:barrier}
+\ee
+with $V_0>0$. For a stationary state of total energy $E$, the Dirac equation is
+\be
+ \left[c\alpha_z p_z+\beta mc^2+V(z)\right]\psi(z)=E\psi(z).
+\label{eq:barrier_dirac}
+\ee
+Because the potential is proportional to the identity in spinor space and depends only on $z$, spin projection along $z$ is conserved. We therefore work in the spin-up sector without loss of generality.
+
+In the exterior regions define
+\be
+ p=\frac{1}{c}\sqrt{E^2-m^2c^4},
+ \qquad
+ \kappa_1=\frac{pc}{E+mc^2}.
+\label{eq:p_kappa1}
+\ee
+Inside the barrier define
+\be
+ E'=E-V_0,
+ \qquad
+ q=\frac{1}{c}\sqrt{{E'}^2-m^2c^4},
+ \qquad
+ \kappa_2=\frac{qc}{E'+mc^2}.
+\label{eq:q_kappa2}
+\ee
+When $q$ is imaginary, the interior solutions are evanescent; when it is real, they are propagating. The same algebraic form covers both cases by analytic continuation.
+
+For incidence from the left, the stationary spinors can be written as
+\begin{align}
+ \psi_I(z)
+ &=A\,e^{ipz/\hbar}
+ \begin{pmatrix}1\\0\\\kappa_1\\0\end{pmatrix}
+ +B\,e^{-ipz/\hbar}
+ \begin{pmatrix}1\\0\\-\kappa_1\\0\end{pmatrix},
+ \qquad z<0,
+ \label{eq:region1}\\[1mm]
+ \psi_{II}(z)
+ &=C\,e^{iqz/\hbar}
+ \begin{pmatrix}1\\0\\\kappa_2\\0\end{pmatrix}
+ +D\,e^{-iqz/\hbar}
+ \begin{pmatrix}1\\0\\-\kappa_2\\0\end{pmatrix},
+ \qquad 0\leq z\leq L,
+ \label{eq:region2}\\[1mm]
+ \psi_{III}(z)
+ &=F\,e^{ipz/\hbar}
+ \begin{pmatrix}1\\0\\\kappa_1\\0\end{pmatrix},
+ \qquad z>L.
+ \label{eq:region3}
+\end{align}
+There is no incoming wave from $z=+\infty$, so the left-moving exterior amplitude in region III is set to zero.
+
+Since the Dirac equation is first order in space, the spinor itself is continuous at a finite step. The matching conditions are therefore
+\be
+ \psi_I(0)=\psi_{II}(0),
+ \qquad
+ \psi_{II}(L)=\psi_{III}(L).
+\label{eq:matching}
+\ee
+At $z=0$ they reduce to
+\begin{align}
+ A+B&=C+D,\label{eq:match0a}\\
+ \kappa_1(A-B)&=\kappa_2(C-D).\label{eq:match0b}
+\end{align}
+It is convenient to define the impedance-like ratio
+\be
+ \alpha\equiv\frac{\kappa_2}{\kappa_1}
+ =\frac{q(E+mc^2)}{p(E-V_0+mc^2)}.
+\label{eq:alpha_scattering}
+\ee
+Then
+\be
+ \begin{pmatrix}A\\B\end{pmatrix}
+ =\frac{1}{2}
+ \begin{pmatrix}
+ 1+\alpha&1-\alpha\\
+ 1-\alpha&1+\alpha
+ \end{pmatrix}
+ \begin{pmatrix}C\\D\end{pmatrix}.
+\label{eq:interface_matrix}
+\ee
+Propagation through the barrier contributes the diagonal phase matrix
+\be
+ P(q,L)=
+ \begin{pmatrix}
+ e^{iqL/\hbar}&0\\
+ 0&e^{-iqL/\hbar}
+ \end{pmatrix}.
+\label{eq:propagation_matrix}
+\ee
+The full problem is thus naturally expressed through a $2\times2$ transfer matrix. This is the relativistic analogue of the standard transfer-matrix treatment of the Schr\"odinger barrier, but the interface parameter is determined by the spinor component ratio rather than by the scalar wave-function derivative.
+
+For real $p$ and $q$, the parameter in Eq.~\eqref{eq:alpha_scattering} may also be written as
+\be
+ \alpha
+ =\sqrt{
+ \frac{(E+mc^2)(E-V_0-mc^2)}
+ {(E-mc^2)(E-V_0+mc^2)}
+ }.
+\label{eq:alpha_explicit}
+\ee
+The branch of the square root must be chosen consistently with the direction of propagation and with the physical energy sector. In the so-called Klein zone, where the shifted energy $E-V_0$ enters the negative-energy continuum, the correct interpretation requires the particle--antiparticle structure of relativistic quantum theory. The scattering and resonance properties of this regime are discussed in Refs.~\cite{DeLeo2006,DeLeo2007}.
+
+The conserved flux is obtained from Eq.~\eqref{eq:dirac_current}. Along the scattering axis,
+\be
+ j^z=c\psi^\dagger\alpha_z\psi.
+\label{eq:jz}
+\ee
+Reflection and transmission coefficients must therefore be defined as ratios of currents, not merely as squared amplitude ratios whenever the asymptotic momenta or spinor normalizations differ. For the symmetric exterior regions used here, the incident and transmitted waves have the same $p$ and the same spinor normalization, so the familiar simplification $T=|F/A|^2$ follows after a consistent normalization.
+
+\section{Concluding Remarks}
+
+Dirac's construction can be summarized as a linearization of the relativistic mass-shell relation by enlarging the wave function from a scalar amplitude to a four-component spinor. The required matrix coefficients generate a Clifford algebra, Lorentz covariance is encoded through the gamma matrices, and the resulting conserved current possesses a positive time component. The free spectrum contains positive- and negative-frequency sectors, which acquire their consistent physical interpretation in quantum field theory as particle and antiparticle degrees of freedom.
+
+The square-barrier problem shows how this algebraic structure enters a concrete calculation. In one dimension the four-component equation reduces, within a fixed spin sector, to matching two independent spinor components at each interface. The resulting transfer matrix is formally close to its nonrelativistic counterpart, but its interface factor contains the relativistic spinor ratio. This difference is responsible for the characteristic behavior of Dirac scattering, including the regimes associated with the Klein paradox and relativistic resonances \cite{Greiner,DeLeo2006,DeLeo2007}.
+
+\begin{thebibliography}{99}
+
+\bibitem{Dirac1928}
+P. A. M. Dirac,
+``The Quantum Theory of the Electron,''
+\textit{Proceedings of the Royal Society of London A} \textbf{117}, 610--624 (1928).
+\href{https://doi.org/10.1098/rspa.1928.0023}{doi:10.1098/rspa.1928.0023}.
+
+\bibitem{DiracBook}
+P. A. M. Dirac,
+\textit{The Principles of Quantum Mechanics},
+4th ed. (Oxford University Press, Oxford, 1958).
+
+\bibitem{Gottfried}
+K. Gottfried and T.-M. Yan,
+\textit{Quantum Mechanics: Fundamentals},
+2nd ed. (Springer, New York, 2003).
+
+\bibitem{Greiner}
+W. Greiner,
+\textit{Relativistic Quantum Mechanics: Wave Equations},
+3rd ed. (Springer, Berlin, 2000).
+
+\bibitem{DeLeo2006}
+S. De Leo and P. Rotelli,
+``Above barrier Dirac multiple scattering and resonances,''
+\textit{European Physical Journal C} \textbf{46}, 551--558 (2006).
+\href{https://doi.org/10.1140/epjc/s2006-02506-6}{doi:10.1140/epjc/s2006-02506-6}.
+
+\bibitem{DeLeo2007}
+S. De Leo and P. Rotelli,
+``Dirac equation studies in the tunnelling energy zone,''
+\textit{European Physical Journal C} \textbf{51}, 241--247 (2007).
+\href{https://doi.org/10.1140/epjc/s10052-007-0283-0}{doi:10.1140/epjc/s10052-007-0283-0}.
+
+\end{thebibliography}
+
+\end{document}
