@@ -4,23 +4,23 @@ This repository is my personal collection of notes, derivations, calculations, p
 
 ## Repository Organization
 
-```mermaid
-flowchart TD
-    A[notes_physics] --> B[mathematical_physics]
-    A --> C[classical_mechanics]
-    A --> D[electromagnetism]
-    A --> E[thermodynamics]
-    A --> F[statistical_mechanics]
-    A --> G[quantum_mechanics]
-    A --> H[optics]
-    A --> I[relativity]
-    A --> J[fluid_mechanics]
-    A --> K[condensed_matter_physics]
-    A --> L[atomic_molecular_physics]
-    A --> M[nuclear_physics]
-    A --> N[particle_physics]
-    A --> O[plasma_physics]
-    A --> P[astrophysics]
+```text
+notes_physics/
+├── mathematical_physics/
+├── classical_mechanics/
+├── electromagnetism/
+├── thermodynamics/
+├── statistical_mechanics/
+├── quantum_mechanics/
+├── optics/
+├── relativity/
+├── fluid_mechanics/
+├── condensed_matter_physics/
+├── atomic_molecular_physics/
+├── nuclear_physics/
+├── particle_physics/
+├── plasma_physics/
+└── astrophysics/
 ```
 
 Within each discipline, I organize individual subjects as independent and largely self-contained notes. A note may contain its own LaTeX source, figures, references, computational code, data, or other assets whenever required. I do not impose a rigid internal structure across the repository. I intend this repository to function as a scientific notebook rather than a finished textbook, allowing elementary calculations, advanced topics, and research-oriented material to coexist and evolve independently.
