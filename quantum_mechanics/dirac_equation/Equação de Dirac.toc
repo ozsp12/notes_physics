@@ -1,0 +1,11 @@
+\select@language {portuges}
+\contentsline {section}{\numberline {1}Motiva\c c\~ao Hist\'orica}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Introdu\c c\~ao}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Equa\c c\~ao de Klein Gordon}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Formula\c c\~ao Covariante}{6}{subsection.1.3}
+\contentsline {section}{\numberline {2}Grupo de Lorentz}{9}{section.2}
+\contentsline {subsection}{\numberline {2.1}Matrizes de Dirac}{9}{subsection.2.1}
+\contentsline {section}{\numberline {3}Equa\c c\~ao de Dirac}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Part\IeC {\'\i }cula Livre (Solu\c c\~ao Geral)}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Part\IeC {\'\i }cula Livre (Solu\c c\~ao Mais Simples)}{13}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Problema de Difus\~ao}{14}{subsection.3.3}

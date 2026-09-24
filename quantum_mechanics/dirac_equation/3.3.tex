@@ -1,0 +1,221 @@
+\subsection{Problema de Difusão}
+
+Seja uma barreira de potencial \index{barreira de potencial } quadrada, de altura $V_0 >
+0$ e largura L, definida no intervalo $[0,L]$. Considerando o movimento de pacotes de onda
+na direção z, de forma a ter-se três domínios: 1 para $z\leq 0 $, 2 para $0 \leq z \leq
+L$, e 3 para $z \geq L$. 
+\\
+Dessa maneira, tem-se que a equação de Dirac para as regiões 1 e 3 é dada por,
+$(\versor{\alpha} \cdot \versor{p} c + \beta mc^2)\psi = E\psi$, enquanto que para a
+região 2, a equação de Dirac é dada pela seguinte relação:
+%
+%
+\[(\versor{\alpha} \cdot \versor{p} c + \beta mc^2)\psi = (E - V_0)\psi\]
+%
+%
+As soluções (spinores) \index{spinores} da equação de Dirac nas regiões 1 e 3 são as
+soluções da partícula livre \index{partícula livre} de Dirac, e como a escolha
+unidirecional foi na direção z, os spinores são funções apenas desta coordenada, ou seja,
+$\psi = \psi(z)$.
+\\
+Para a região 2, as soluções são as mesmas, porém com a seguinte
+substituição, $E \to E - V_0$. Sendo que o espectro de energias pode assumir qualquer
+valor no intervalo aberto $(-\infty,\infty)$, descrevendo dessa maneira além de
+partículas, as chamadas anti-partículas.
+\\
+As soluções da equação de Dirac admitem spins "up" e "down", mas o tratamento será dado
+sem o spin flip \index{spin flip}, o que torna a escolha arbitrária da orientação de spin,
+neste caso o spin up \index{spin up}. Abaixo as soluções para as respectivas regiões:
+%
+%
+\begin{enumerate}
+ \item Onde $(z \leq 0)$, sendo $\psi_1(z)$ o spinor para essa região, e sendo $p$ o
+ valor do momento, e seja $\epsilon_1 = E + mc^2$, sendo respeitada a seguinte
+ relação, $E^2 = (pc)^2 + (mc^2)^2$ tem-se que que:
+ %
+ %
+ \[\psi_1(z) = A_1\exp(ipz/\hbar)\begin{pmatrix} 1 \\ 0 \\ pc/\epsilon_1 \\
+ 0\end{pmatrix} + A_2\exp(- ipz/\hbar)\begin{pmatrix}1 \\ 0 \\ - pc/\epsilon_1 \\
+ 0\end{pmatrix}\]
+ %
+ %
+ \item Onde $(0 \leq z \leq L)$, sendo $\psi_2(z)$ o spinor para essa região, e sendo $q$
+ o valor do momento, e seja $\epsilon_2 = E - V_0 + mc^2$, sendo respeitada a seguinte
+ relação, $(E - V_0)^2 = (qc)^2 + (mc^2)^2$ tem-se que que:
+ %
+ %
+ \[\psi_2(z) = B_1\exp(iqz/\hbar)\begin{pmatrix} 1 \\ 0 \\ qc/\epsilon_2 \\
+ 0\end{pmatrix} + B_2\exp(- iqz/\hbar)\begin{pmatrix}1 \\ 0 \\ - qc/\epsilon_2 \\
+ 0\end{pmatrix}\]
+ %
+ %
+ \item Onde $(z \geq L)$, sendo $\psi_3(z)$ o spinor para essa região, e sendo
+ $p$ o valor do momento, e seja $\epsilon_1 = E + mc^2$, sendo respeitada a seguinte
+ relação, $E^2 = (pc)^2 + (mc^2)^2$ tem-se que que:
+ %
+ %
+ \[\psi_3(z) = C_1\exp(ipz/\hbar)\begin{pmatrix} 1 \\ 0 \\ pc/\epsilon_1 \\
+ 0\end{pmatrix} + C_2\exp(- ipz/\hbar)\begin{pmatrix}1 \\ 0 \\ - pc/\epsilon_1 \\
+ 0\end{pmatrix}\]
+\end{enumerate}
+%
+%
+Para que a densidade de corrente \index{densidade de corrente} $(\partial_\mu j^\mu)$ seja
+conservada é necessário que hajam condições de continuidade das funções de onda, nas
+fronteiras da barreira de potencial. Deve-se ter então que $\psi_1(0) = \psi_2(0)$ e que
+$\psi_2(L) = \psi_3(L)$. Fazendo essas comparações, encontra-se que:
+%
+%
+\begin{eqnarray}
+\nonumber \psi_1(0) &=& \psi_2(0)\\
+\nonumber  A_1\begin{pmatrix} 1 \\ 0 \\ pc/\epsilon_1 \\  0\end{pmatrix} +
+A_2\begin{pmatrix}1 \\ 0 \\ - pc/\epsilon_1 \\ 0\end{pmatrix} &=& B_1\begin{pmatrix} 1 \\
+0 \\ qc/\epsilon_2 \\ 0\end{pmatrix} + B_2\begin{pmatrix}1 \\ 0 \\ - qc/\epsilon_2 \\
+0\end{pmatrix}
+\end{eqnarray}
+%
+%
+Dando resultado ao seguinte par de equações, nas variáveis $A_1, A_2, B_1, B_2$:
+%
+%
+\begin{eqnarray}
+\nonumber A_1 + A_2 &=& B_1 + B_2\\
+\nonumber (A_1 - A_2)\frac{pc}{\epsilon_1} &=& (B_1 - B_2)\frac{qc}{\epsilon_2}
+\end{eqnarray}
+%
+%
+É possível reescrever o sistema de equações acima em forma matricial:
+%
+%
+\[\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}\begin{pmatrix}A_1 \\ A_2\end{pmatrix} =
+\begin{pmatrix}1 & 1 \\ q\epsilon_1/p\epsilon_2 & -
+q\epsilon_1/p\epsilon_2\end{pmatrix}\begin{pmatrix}B_1 \\ B_2\end{pmatrix}\]
+%
+%
+De modo que (utilizando a seguinte simplificação, $\alpha = q\epsilon_1/p\epsilon_2$):
+%
+%
+\begin{eqnarray}
+\nonumber \begin{pmatrix}A_1 \\ A_2\end{pmatrix} &=& \begin{pmatrix}1/2 & 1/2 \\ 1/2 &
+-1/2\end{pmatrix}\begin{pmatrix}1 & 1 \\ \alpha & -\alpha\end{pmatrix}\begin{pmatrix}B_1
+\\ B_2\end{pmatrix}\\
+\nonumber &=& \frac{1}{2}\begin{pmatrix}1 + \alpha & 1 - \alpha \\ 1 - \alpha &
+1 + \alpha\end{pmatrix} \begin{pmatrix}B_1 \\ B_2\end{pmatrix}
+\end{eqnarray}
+%
+%
+Procedendo da mesma maneira para $z = L$, tem-se que:
+%
+%
+\begin{eqnarray}
+\nonumber \psi_2(L) &=& \psi_3(L)\\
+\nonumber B_1e^{iqL/\hbar}\begin{pmatrix} 1 \\ 0 \\ qc/\epsilon_2 \\
+ 0\end{pmatrix} + B_2 e^{- iqL/\hbar}\begin{pmatrix}1 \\ 0 \\ - qc/\epsilon_2 \\
+ 0\end{pmatrix} &=& C_1e^{ipL/\hbar}\begin{pmatrix} 1 \\ 0 \\ pc/\epsilon_1 \\
+ 0\end{pmatrix} \\
+\nonumber &+& C_2 e^{- ipL/\hbar}\begin{pmatrix}1 \\ 0 \\ - pc/\epsilon_1 \\
+ 0\end{pmatrix}
+\end{eqnarray}
+%
+%
+Dando resultado ao seguinte par de equações, nas variáveis $B_1, B_2, C_1, C_2$:
+%
+%
+\begin{eqnarray}
+\nonumber  B_1e^{iqL/\hbar} + B_2e^{- iqL/\hbar} &=& C_1e^{ipL/\hbar} +
+C_2e^{-ipL/\hbar}\\
+\nonumber  \left(B_1e^{iqL/\hbar} - B_2e^{- iqL/\hbar}\right)\frac{qc}{\epsilon_2} &=&
+\frac{pc}{\epsilon_1}\left(C_1e^{ipL/\hbar} - C_2e^{-ipL/\hbar}\right)
+\end{eqnarray}
+%
+%
+É possível reescrever o sistema de equações acima em forma matricial. Para simplificar a
+notação, será feito o seguinte apoio algébrico, $\beta = e^{iqL/\hbar}$, de modo que,
+$\beta^* = e^{- iqL/\hbar}$, e $\beta\beta^* = 1$, da mesma maneira será definido que,
+$\gamma = e^{ipL/\hbar}$, e que $\gamma^* = e^{- iqL/\hbar}$, sendo, $\gamma\gamma^* =
+1$. Além disso, deve-se lembrar que, $\alpha = q\epsilon_1/p\epsilon_2$
+%
+%
+\[\begin{pmatrix}\beta & \beta^* \\ \beta & - \beta^*\end{pmatrix}\begin{pmatrix}B_1
+\\ B_2\end{pmatrix} =
+\begin{pmatrix}\gamma & \gamma^* \\ \gamma/\alpha &
+- \gamma^*/\alpha\end{pmatrix}\begin{pmatrix}C_1 \\ C_2\end{pmatrix}\]
+%
+%
+De modo que:
+%
+%
+\begin{eqnarray}
+\nonumber \begin{pmatrix}B_1 \\ B_2\end{pmatrix} &=& \frac{1}{2}\begin{pmatrix}1/\beta &
+1/\beta \\ 1/\beta^* & - 1/\beta^*\end{pmatrix}\begin{pmatrix}\gamma & \gamma^* \\
+\gamma/\alpha & - \gamma^*/\alpha\end{pmatrix}\begin{pmatrix}C_1 \\ C_2\end{pmatrix}\\
+\nonumber &=& \frac{1}{2}\begin{pmatrix}\frac{\gamma}{\beta}\frac{1 + \alpha}{\alpha} &
+\frac{\gamma^*}{\beta}\frac{\alpha - 1}{\alpha}\\
+\frac{\gamma}{\beta^*}\frac{\alpha - 1}{\alpha} &
+\frac{\gamma^*}{\beta^*}\frac{1 + \alpha}{\alpha}\\
+\end{pmatrix}\begin{pmatrix}C_1 \\ C_2\end{pmatrix}
+\end{eqnarray}
+%
+%
+De forma que finalmente se tenha:
+%
+%
+\begin{eqnarray}
+\nonumber \begin{pmatrix}A_1 \\ A_2\end{pmatrix} &=& \frac{1}{4\alpha}
+\begin{pmatrix}1 + \alpha & 1 - \alpha\\
+ 1 - \alpha & 1 + \alpha
+\end{pmatrix}
+\begin{pmatrix}\frac{\gamma}{\beta}(1 + \alpha) & \frac{\gamma^*}{\beta}(\alpha - 1)\\
+\frac{\gamma}{\beta^*}(\alpha - 1)& \frac{\gamma^*}{\beta^*}(1 + \alpha)\\
+\end{pmatrix}
+\begin{pmatrix}
+C_1 \\
+C_2
+\end{pmatrix}\\
+\nonumber &=& \begin{pmatrix}
+\frac{\gamma}{\beta}(1 + \alpha)^2 - \frac{\gamma}{\beta^*}(\alpha - 1)^2 &
+(\alpha^2 - 1)\left(\frac{\gamma^*}{\beta} - \frac{\gamma^*}{\beta^*}\right)\\
+(1 - \alpha^2)\left(\frac{\gamma^*}{\beta} - \frac{\gamma^*}{\beta^*}\right) &
+\frac{\gamma}{\beta^*}(1 + \alpha)^2 - \frac{\gamma}{\beta}(\alpha - 1)^2
+\end{pmatrix}\begin{pmatrix}
+C_1 \\
+C_2
+\end{pmatrix}
+\end{eqnarray}
+
+\newpage\noindent
+Lembrando que $\beta = e^{iqL/\hbar}$, $\beta^* = e^{- iqL/\hbar}$, $\beta\beta^* = 1$,
+$\gamma = e^{ipL/\hbar}$, $\gamma^* = e^{- iqL/\hbar}$, e que $\alpha =
+q\epsilon_1/p\epsilon_2$, tem-se que:
+%
+%
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\ds \frac{\gamma}{\beta}     = \exp\left(iL(p - q)/\hbar\right)$
+\item $\ds \frac{\gamma}{\beta^*}   = \exp\left(iL(p + q)/\hbar\right)$
+\item $\ds \frac{\gamma^*}{\beta}   = \exp\left(- iL(p + q)/\hbar\right)$
+\item $\ds \frac{\gamma^*}{\beta^*} = \exp\left(- iL(p - q)/\hbar\right)$
+\end{enumerate}
+\end{multicols}
+%
+%
+Lembrando que $\epsilon_1 = E + mc^2$, e que $\epsilon_2 = E - V_0 + mc^2$, sendo que
+temos as seguintes relações entre os momentos, em função de $E, V_0, mc^2$:
+%
+%
+\begin{eqnarray}
+\nonumber p &=& \pm \frac{1}{c}\sqrt{E^2 - (mc^2)^2}\\
+\nonumber q &=& \pm \frac{1}{c}\sqrt{(E - V_0)^2 - (mc^2)^2}
+\end{eqnarray}
+%
+%
+De forma que a constante, $\alpha = q\epsilon_1/p\epsilon_2$, seja dada pela seguinte
+relação:
+%
+%
+\begin{eqnarray}
+\nonumber \alpha &=& \frac{\epsilon_1}{\epsilon_2}\frac{q}{p}\\
+\nonumber        &=& \frac{E + mc^2}{E - V_0 + mc^2}\sqrt{\frac{(E - V_0)^2 -
+(mc^2)^2}{E^2 - (mc^2)^2}}\\
+\nonumber        &=& \sqrt{\frac{(E + mc^2)(E - V_0 - mc^2)}{(E - mc^2)(E - V_0 + mc^2)}}
+\end{eqnarray}

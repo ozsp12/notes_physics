@@ -1,0 +1,123 @@
+\subsection{Equação de Klein Gordon}
+
+A equação de Schrodinger é uma equação de auto valores, $H\psi = E\psi$, onde $H$ é a
+função Hamiltoniana do sistema, sendo a energia total:
+%
+%
+\begin{eqnarray}
+\nonumber H\psi &=& E\psi\\
+\nonumber \left(\frac{p^2}{2m} + V\right)\psi &=& E\psi\\
+\nonumber  \left(- \frac{h^2}{2m}\nabla^2 + V\right)\psi &=& i\hbar\deli{\psi}{t}
+\end{eqnarray}
+%
+%
+Tomando o 4-momento, $p^\mu = i\hbar\partial_\mu$, como sendo da seguinte forma:
+%
+%
+\begin{eqnarray}
+\nonumber p^\mu &=& i\hbar (\partial_{ct},- \partial_x,- \partial_y,- \partial_z)\\
+\nonumber       &=& i\hbar (\partial_{ct},- \nabla)\\
+\nonumber       &=& i\hbar (p_0,\versor{p})
+\end{eqnarray}
+%
+%
+É possível obter a equação de Klein-Gordon \index{equação de Klein-Gordon} para partículas
+livres, na forma de Schrodinger relativística. De maneira que seja também uma equação de
+auto valores, $p^\mu p_\mu\psi = (mc)^2\psi$.
+%
+%
+\[p^\mu p_\mu\psi = \left(\frac{E^2}{c^2} - p^2\right)\psi = - (mc)^2\]
+%
+%
+De forma que seus possíveis auto-valores sejam dados por:
+%
+%
+\[E_+ = \sqrt{(pc)^2 + (mc^2)^2} \qquad , \qquad E_- = - \sqrt{(pc)^2 + (mc^2)^2}\]
+%
+%
+Esses dois possíveis valores de auto energias na equuação de Klein Gordon, é a principal
+diferença, em comparação com a equação de Schrodinger. Substituindo, $E \to
+i\hbar\partial_{ct}$, e $p \to i\hbar\nabla$, tem-se que:
+%
+%
+\[- \hbar^2\left(\deli{^2}{(ct)^2} - \nabla^2\right)\psi = - (mc)^2\psi\]
+%
+%
+Como $p^\mu p_\mu$ é invariante de Lorentz \index{invariante de Lorentz}, isso torna a
+equação de Klein-Gordon covariante \index{Klein-Gordon covariante}. Definindo o seguinte
+operador:
+%
+%
+\[\partial^2 = \deli{^2}{(ct)^2} - \nabla^2\]
+%
+%
+Encontra-se a seguinte relação (Equação de Klein Gordon):
+%
+%
+\[\left(\partial^2 + \frac{m^2c^2}{\hbar^2}\right)\psi = 0\]
+%
+%
+A relação acima é uma Equação de Poisson \index{Equação de Poisson} do tipo, $(\triangle
+- \lambda^2)\psi = - f$ . A relação $\lambda_c = \hbar/mc$ é o comprimento de onda
+Compton \index{comprimento de onda Compton} da partícula em questão. A solução da
+partícula livre para a Equação de Klein Gordon é a mesma que para a Equação
+de Schrodinger.
+%
+%
+\[\psi = e^{- ip_\mu x^\mu/\hbar} = e^{ i(\versor{p}\cdot\versor{x} - Et)/\hbar}\]
+%
+%
+É uma consequência direta da Equação de Klein Gordon, que a função de onda satisfaz a
+equação de continuidade. Tomando a equação e seu conjugado, e multiplicando pela esquerda,
+pela função de onda e pelo seu complexo conjugado, respectivamente, tem-se que:
+%
+%
+\begin{eqnarray}
+\nonumber \psi^*( p_\mu p^\mu - m^2c^2)\psi &=& 0\\
+\nonumber \psi( p_\mu p^\mu  - m^2c^2)\psi^* &=& 0
+\end{eqnarray}
+%
+%
+Subtraindo uma equação da outra, tem-se que:
+%
+%
+\[\psi^*( p_\mu p^\mu - m^2c^2)\psi  - \psi( p_\mu p^\mu - m^2c^2)\psi^*\]
+%
+%
+Tendo-se em mente que $\psi^*\psi = \psi\psi^* = |\psi|^2$, a relação acima simplifica
+para:
+%
+%
+\[ \psi^* p_\mu p^\mu\psi - \psi p_\mu p^\mu\psi^*  = 0 \]
+%
+%
+Somando e subtraindo $p_\mu\psi^* p^\mu\psi$, e tendo em mente que, $p_\mu\psi^*
+p^\mu\psi = p_\mu\psi p^\mu\psi^*$
+%
+%
+\[ \psi^* p_\mu p^\mu\psi + p_\mu\psi^* p^\mu\psi - p_\mu\psi p^\mu\psi^* - \psi p_\mu
+p^\mu\psi^*  = 0 \]
+%
+%
+Simplificando, tem-se que:
+%
+%
+\[p_\mu(\psi^* p^\mu\psi) - p_\mu(\psi p^\mu\psi^*) = p_\mu(\psi^* p^\mu\psi - \psi
+p^\mu\psi^*) = 0 \]
+%
+%
+Definindo, a 4-corrente de densidade $j^\mu = \psi^* p^\mu\psi - \psi
+p^\mu\psi^*$, tem-se a equação de continuidade \index{equação de continuidade}, $p_\mu
+j^\mu = 0$ (em forma tensorial). Em forma vetorial, lembrando que, $p_\mu =
+g_{\mu\nu}p^\nu = i\hbar(\partial_{ct},\nabla)$, tem-se que:
+%
+%
+\[\deli{\rho}{t} + \nabla\cdot\versor{j} = 0\]
+%
+%
+Onde definiu-se que:
+%
+%
+\[\rho = \psi^*\deli{}{t}\psi - \psi\deli{}{t}\psi^* \quad , \quad
+\versor{j} = \psi\nabla\psi^* - \psi^*\nabla\psi
+\]

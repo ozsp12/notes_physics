@@ -1,0 +1,86 @@
+\section{Grupo de Lorentz}
+
+\subsection{Matrizes de Dirac}
+
+As relações de anticomutação das variáveis dinâmicas de Dira,
+%
+%
+%
+%
+\[
+\beta^2 = (\alpha_i)^2 = I
+\quad , \quad
+\alpha_i\alpha_j + \alpha_j\alpha_i = 2\delta_{ij}
+\quad , \quad
+\beta\alpha_i + \alpha_i\beta = 0
+\]
+
+Definem uma álgebra para as matrizes $\beta$, $\alpha_i$, chamada de Álgebra de Dirac
+\index{Álgebra de Dirac} que nada mais é do que um tipo de Álgebra de Clifford
+\index{Álgebra de Clifford}, que é representada pelas matrizes $\gamma^\mu$:
+%
+%
+\[    \gamma^0 = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\
+0 & 0
+& 0 & -1 \end{pmatrix},\quad \gamma^1 \!=\! \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0
+\\ 0 & -1 & 0 & 0 \\ -1 & 0 & 0 & 0 \end{pmatrix}\]
+%
+%
+\[\gamma^2 \!=\! \begin{pmatrix} 0 & 0 & 0 & -i \\ 0 & 0 & i & 0 \\ 0 & i & 0 & 0 \\ -i
+& 0 & 0 & 0 \end{pmatrix},\quad \gamma^3 \!=\! \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0
+& -1 \\ -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix}\]
+
+Esse conjunto de matrizes forma um espaço pseudo ortogonal, de dimensão 4. Um outro grupo
+de matrizes que obedecem as mesmas regras de anticomutação são as matrizes de Pauli, que
+são matrizes ortogonais em um espaço de três dimensões, sendo portanto um subgrupo do
+grupo das matrizes $\gamma^\mu$.
+
+Além das propriedades de anticomutação, as variáveis dinâmicas de Dirac apresentam outras
+propriedades importantes:
+
+\begin{enumerate}
+\item As matrizes $\alpha_i$ e $\beta$ são hermitianas \index{hermitianas}. Este fato é
+imediato da hermiticidade do Hamiltoniano. Fato este que implica que seus auto valores
+sejam reais.
+\item A relação $\beta^2 = (\alpha_i)^2 = I$ implica que estas matrizes possuem o
+determinante igual à $\pm 1$. As matrizes cujo determinante é igual à $1$, pertencem ao
+grupo das matrizes (de ordem n) ortogonais especiais\index{matrizes ortogonais especiais},
+SO(n). Estas matrizes quando aplicadas como transformações lineares, atuam como rotações.
+\item Da propriedade $\beta\alpha_i + \alpha_i\beta = 0$, tem-se que $\alpha_i = -
+\beta\alpha_i\beta$.
+\item Pela invariância do traço, e da propriedade de que $\traco(AB) = \traco(BA)$, e
+utilizando a propriedade anterior, tem-se que:
+%
+%
+\[\traco(\alpha_i) = \traco(-\beta\alpha_i\beta) = - \traco(\beta^2\alpha_i) = -
+\traco(\alpha_i) \to \traco(\alpha_i) = 0\]
+%
+%
+\item A relação $\beta^2 = (\alpha_i)^2 = I$ implica também que estas matrizes podem
+possuir apenas auto valores iguais à $\pm 1$. A demonstração deste fato é imediata, pois
+quando aplicada à um auto vetor, $\alpha_i v = av$, aplicando novamente a matriz, temos
+que, $(\alpha_i)^2v = Iv = a^2v \to a = \pm 1$. A demonstração para $\beta$ é análoga.
+\item O fato de que as matrizes $\beta$ e $\alpha_i$ possuem auto valores apenas iguais à
+$\pm 1$, implica que a ordem da matriz deve ser par, pois devem possuir a mesma proporção
+de auto valores negativos, quanto positivos. 
+\end{enumerate}
+
+As propriedades 5 e 6 nos remetem a uma discussão interessante, sobre o por quê das
+matrizes de Dirac serem de ordem 4. Como já foi demonstrado que as matrizes devem possuir
+uma ordem n = par, testemos a menor ordem possível primeiramente, $n = 2$. É impossível
+determinar um par de matrizes que obedeçam as propriedades anticomutativas da Álgebra de
+Dirac. O único conjunto de matrizes que obedece essa Álgebra pertencem a um espaço de 3
+dimensões, são as matrizes de Pauli. Esses fatos evidenciam que a menor ordem par
+possível para as matrizes seria $n = 4$.
+
+Outras matrizes de Dirac podem ser obtidas através de transformações unitárias. Isso
+garante que as medidas físicas realizadas são independentes da representação utilizada,
+na Álgebra de Dirac. Esse fato permite utilizar representações arbitrariamente de acordo
+com a simplificação do problema físico em questão. Dirac usou como representação:
+%
+%
+\[
+\alpha_k = \begin{pmatrix} 0 & \sigma_k \\ \sigma_k & 0 \end{pmatrix}
+\qquad , \qquad
+\beta = \begin{pmatrix} I_2 & 0 \\ 0 & -I_2 \end{pmatrix}
+\]
